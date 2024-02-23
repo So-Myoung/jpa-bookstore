@@ -1,0 +1,25 @@
+spring:
+#  datasource:
+#    url:  jdbc:h2:mem:testdb
+#    username: sa
+#    password:
+#    driver-class-name: org.h2.Driver
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: create-drop
+#    properties:
+#      hibernate:
+##        show_sql: true
+#        format_sql: true
+
+logging.level:
+  org.hibernate.SQL: debug
+  org.hibernate.orm.jdbc.bind: trace
+# org.hibernate.type: trace #스프링 부트 2.x, hibernate5
+# org.hibernate.orm.jdbc.bind: trace #스프링 부트 3.x, hibernate6
+
+#  --------스프링 부트는 datasource 설정이 없으면---------
+#  기본적을 메모리 DB를 사용
+#  driver-class도 현재 등록된 라이브러를보고 찾아준다.
+#  추가로 ddl-auto 도 create-drop 모드로 동작
