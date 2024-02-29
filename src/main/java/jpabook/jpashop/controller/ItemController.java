@@ -56,8 +56,7 @@ public class ItemController {
     // 상품 수정 페이지 로 이동
     @GetMapping(value = "/items/{itemId}/edit")
     public String updateItemForm(
-            @PathVariable("itemId") Long itemId
-            , Model model){
+            @PathVariable("itemId") Long itemId, Model model){
         Book item = (Book) itemService.findOne(itemId);
         BookForm bookForm = new BookForm();
 
@@ -74,17 +73,13 @@ public class ItemController {
 
     // 상품 수정
     @PostMapping(value = "/items/{itemId}/edit")
-    public String updateItem(@ModelAttribute("itemForm") BookForm bookForm) {
-        Book book = new Book();
+    public String updateItem(@PathVariable("itemId") Long itemId
+            , @ModelAttribute("itemForm") BookForm form) {
 
-        book.setId(bookForm.getId());
-        book.setName(bookForm.getName());
-        book.setPrice(bookForm.getPrice());
-        book.setStockQuantity(bookForm.getStockQuantity());
-        book.setAuthor(bookForm.getAuthor());
-        book.setIsbn(bookForm.getIsbn());
+        itemService.updateItem(itemId, form.getName(), form.getPrice(), form.getStockQuantity());
 
-        itemService.saveItem(book);
         return "redirect:/items";
     }
+
+    // 상품 삭제
 }

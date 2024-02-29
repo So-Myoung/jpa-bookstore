@@ -14,6 +14,7 @@
                 <th>가격</th>
                 <th>재고수량</th>
                 <th></th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -26,6 +27,10 @@
                 <td>
                     <a href="#" th:href="@{/items/{id}/edit (id=${item.id})}"
                        class="btn btn-primary" role="button">수정</a>
+                </td>
+                <td>
+                    <a href="#" th:href="@{/items/{id}/edit (id=${item.id})}"
+                       class="btn btn-danger" role="button">삭제</a>
                 </td>
             </tr>
             </tbody>
