@@ -1,11 +1,11 @@
 #### 메인 페이지
-![image](https://github.com/So-Myoung/jpa-shop/assets/99127970/c4830aeb-1592-4cf5-b69a-9b7dd7c6d1a1)
+![image](https://github.com/So-Myoung/jpa-shop/assets/99127970/e0873592-3ea7-4741-8a6a-3fbb7c607bfa)
 
 #### 상품 목록
-![image](https://github.com/So-Myoung/jpa-shop/assets/99127970/e2006ae9-8975-4d3b-9851-6741fd9eeb5b)
+![image](https://github.com/So-Myoung/jpa-shop/assets/99127970/78bff4bd-6a5d-4177-ac06-5f54d7593edf)
 
 #### 주문 내역
-![image](https://github.com/So-Myoung/jpa-shop/assets/99127970/fed06736-7ac4-4f0a-a7ed-2bacec5973b9)
+![image](https://github.com/So-Myoung/jpa-shop/assets/99127970/36fbe4ca-c5c4-40a2-9b04-c1fe6e91fad9)
 
 ### 설명
 Spring JPA를 연습하기 위해서 가상의 Shop을 만들어보며 연습하는 웹페이지
