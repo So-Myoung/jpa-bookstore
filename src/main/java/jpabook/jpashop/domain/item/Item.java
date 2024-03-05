@@ -2,6 +2,9 @@ package jpabook.jpashop.domain.item;
 
 import jakarta.persistence.*;
 import jpabook.jpashop.domain.Category;
+import jpabook.jpashop.domain.DeliveryStatus;
+import jpabook.jpashop.domain.OrderItem;
+import jpabook.jpashop.domain.OrderStatus;
 import jpabook.jpashop.exception.NotEnoughStockException;
 import lombok.Getter;
 import lombok.Setter;
@@ -44,5 +47,4 @@ public abstract class Item {
         }
         this.stockQuantity = restStock;
     }
-
 }

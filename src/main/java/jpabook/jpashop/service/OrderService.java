@@ -53,9 +53,19 @@ public class OrderService {
     }
 
     /*
+     * 주문 삭제
+     * */
+    @Transactional
+    public void removeOrder(Long orderId) {
+        Order order = orderRepository.fineOne(orderId);
+        orderRepository.removeOrder(order);
+    }
+
+    /*
      * 주문 검색
      * */
     public List<Order> findOrders(OrderSearch orderSearch) {
         return orderRepository.findAllByCriteria(orderSearch);
     }
+
 }

@@ -90,4 +90,8 @@ public class OrderRepository {
 /*    public List<Order> findAllByQueryDsl(OrderSearch orderSearch){
         추후 작성 예정
     }*/
+
+    public void removeOrder(Order order) {
+        em.remove(order);
+    }
 }

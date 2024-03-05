@@ -70,4 +70,10 @@ public class OrderController {
     }
 
     // 주문 삭제
+    @PostMapping(value = "/orders/{orderId}/remove")
+    public String removeItem(@PathVariable("orderId") Long orderId) {
+        orderService.removeOrder(orderId);
+
+        return "redirect:/orders";
+    }
 }

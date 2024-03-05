@@ -28,9 +28,9 @@
             <tr>
                 <th>#</th>
                 <th>회원명</th>
-                <th>대표상품 이름</th>
-                <th>대표상품 주문가격</th>
-                <th>대표상품 주문수량</th>
+                <th>상품명</th>
+                <th>상품가격</th>
+                <th>주문수량</th>
                 <th>총 주문가격</th>
                 <th>상태</th>
                 <th>일시</th>
@@ -39,24 +39,24 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="item : ${orders}">
-                <td th:text="${item.id}"></td>
-                <td th:text="${item.member.name}"></td>
-                <td th:text="${item.orderItems[0].item.name}"></td>
-                <td th:text="${item.orderItems[0].orderPrice}"></td>
-                <td th:text="${item.orderItems[0].count}"></td>
-                <td th:text="${item.orderItems[0].totalPrice}"></td>
-                <td th:text="${item.orderStatus}"></td>
-                <td th:text="${item.orderDate}"></td>
+            <tr th:each="order : ${orders}">
+                <td th:text="${order.id}"></td>
+                <td th:text="${order.member.name}"></td>
+                <td th:text="${order.orderItems[0].item.name}"></td>
+                <td th:text="${order.orderItems[0].orderPrice}"></td>
+                <td th:text="${order.orderItems[0].count}"></td>
+                <td th:text="${order.orderItems[0].totalPrice}"></td>
+                <td th:text="${order.orderStatus}"></td>
+                <td th:text="${order.orderDate}"></td>
                 <td>
-                    <a th:if="${item.orderStatus.name() == 'ORDER'}" href="#"
-                       th:href="'javascript:cancel('+${item.id}+')'"
+                    <a th:if="${order.orderStatus.name() == 'ORDER'}" href="#"
+                       th:href="'javascript:cancel('+${order.id}+')'"
                        class="btn btn-warning">취소</a>
                 </td>
                 <td>
-                    <a href="#" class="btn btn-danger" role="button">삭제</a>
-<!--                    <a href="#" th:href="@{/orders/{id}/edit (id=${orders.id})}"-->
-<!--                       class="btn btn-danger" role="button">삭제</a>-->
+                    <a href="#"
+                       th:href="'javascript:remove('+${order.id}+')'"
+                       class="btn btn-danger">삭제</a>
                 </td>
             </tr>
             </tbody>
@@ -70,6 +70,15 @@
         var form = document.createElement("form");
         form.setAttribute("method", "post");
         form.setAttribute("action", "/orders/" + id + "/cancel");
+        document.body.appendChild(form);
+        form.submit();
+    }
+</script>
+<script>
+    function remove(id) {
+        var form = document.createElement("form");
+        form.setAttribute("method", "post");
+        form.setAttribute("action", "/orders/" + id + "/remove");
         document.body.appendChild(form);
         form.submit();
     }
