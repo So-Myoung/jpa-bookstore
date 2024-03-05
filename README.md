@@ -1,5 +1,10 @@
+#### 메인 페이지
 ![image](https://github.com/So-Myoung/jpa-shop/assets/99127970/c4830aeb-1592-4cf5-b69a-9b7dd7c6d1a1)
+
+#### 상품 목록
 ![image](https://github.com/So-Myoung/jpa-shop/assets/99127970/e2006ae9-8975-4d3b-9851-6741fd9eeb5b)
+
+#### 주문 내역
 ![image](https://github.com/So-Myoung/jpa-shop/assets/99127970/fed06736-7ac4-4f0a-a7ed-2bacec5973b9)
 
 ### 설명
