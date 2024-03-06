@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 public class MemberApiController {
     private final MemberService memberService;
 
-    //--------------회원 등록---------------
+    //--------------회원 등록 api---------------
     /*
     * V1: 요청 값으로 Member 엔티티를 직접 받음.
     * -> 엔티티가 변경되면 api 스펙이 변하므로, 절대 지양
@@ -55,7 +55,7 @@ public class MemberApiController {
     }
     */
 
-    //--------------회원 수정---------------
+    //--------------회원 수정 api---------------
     /*
      * V2: 수정 api
      * */
@@ -67,7 +67,7 @@ public class MemberApiController {
         return new UpdateMemberResponse(findMember.getId(), findMember.getName(), findMember.getAddress());
     }
 
-    //--------------회원 조회---------------
+    //--------------회원 조회 api---------------
     /*
      * V1: 응답 값으로 엔티티를 직접 외부에 노출
      * -> 엔티티의 모든 값이 노출, 엔티티가 변경되면 api 스펙이 변함. 절대 지양
