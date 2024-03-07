@@ -25,6 +25,10 @@ public class OrderRepository {
         return em.find(Order.class, id);
     }
 
+    public void removeOrder(Order order) {
+        em.remove(order);
+    }
+
     // JPQL 로 처리
     public List<Order> findAllByString(OrderSearch orderSearch) {
         String jpql = "select o From Order o join o.member m";
@@ -91,7 +95,12 @@ public class OrderRepository {
         추후 작성 예정
     }*/
 
-    public void removeOrder(Order order) {
-        em.remove(order);
+    // fetch join
+    public List<Order> findAllWithMemberDelivery() {
+        return em.createQuery(
+                        "select o from Order o " +
+                                "join fetch o.member m " +
+                                "join fetch o.delivery d", Order.class)
+                .getResultList();
     }
 }
