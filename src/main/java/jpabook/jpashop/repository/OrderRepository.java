@@ -7,6 +7,7 @@ import jpabook.jpashop.domain.Member;
 import jpabook.jpashop.domain.Order;
 import jpabook.jpashop.domain.OrderSearch;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.mapping.ToOne;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
@@ -95,12 +96,35 @@ public class OrderRepository {
         추후 작성 예정
     }*/
 
-    // fetch join
+    // ManyToOne fetch join
     public List<Order> findAllWithMemberDelivery() {
         return em.createQuery(
                         "select o from Order o " +
                                 "join fetch o.member m " +
                                 "join fetch o.delivery d", Order.class)
+                .getResultList();
+    }
+
+    public List<Order> findAllWithMemberDeliveryPaging(int offset, int limit) {
+        return em.createQuery(
+                        "select o from Order o " +
+                                "join fetch o.member m " +
+                                "join fetch o.delivery d", Order.class)
+                .setFirstResult(offset)
+                .setMaxResults(limit)
+                .getResultList();
+    }
+
+/*     oneToMany 연관 관계 fetch join 존재
+     -> 같은 order 엔티티의 조회수 증가 하므로 distinct를 사용해야 중복 조회를 막아줌
+    가장 best는 ToOne 관계만 fetch join 하자.*/
+    public List<Order> findAllWithItem() {
+        return em.createQuery(
+                        "select distinct o from Order o" +
+                                " join fetch o.member m" +
+                                " join fetch o.delivery d" +
+                                " join fetch o.orderItems oi" +
+                                " join fetch oi.item i", Order.class)
                 .getResultList();
     }
 }
