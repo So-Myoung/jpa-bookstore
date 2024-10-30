@@ -18,4 +18,4 @@ JPA를 연습하기 위해서 가상의 서점을 만들어보며 연습하는 �
 
 ### 기술 스택
 1. 백엔드 : JAVA, Spring, JPA, H2 Database
-2. 프론트 : Thymeleaf, Bootstrap
+2. 프론트엔드 : Thymeleaf, Bootstrap
